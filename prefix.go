@@ -114,6 +114,8 @@ func updateCountry(c Country) {
 
 func Lookup(number string) (Country, error) {
 
+	number = strings.Replace(number, "+", "", -1)
+	
 	if !validNumber.MatchString(number) {
 		return Country{}, fmt.Errorf("Invalid number format: %s", number)
 	}
